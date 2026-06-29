@@ -1,0 +1,12 @@
+# .github/metadata.yaml
+description: "Swift encoding of the SI decimal prefixes defined in ISO 80000-1."
+topics:
+  - standards
+  - iso
+  - iso-80000
+  - si
+  - units
+  - prefixes
+homepage: "https://swift-institute.org"
+readme:
+  family: E
