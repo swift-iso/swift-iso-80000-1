@@ -53,11 +53,14 @@ extension ISO_80000_1.Prefix {
     ///
     /// Returned as `Double` because the SI submultiples are fractional and the
     /// largest multiple (10³⁰) exceeds the range of `UInt64`. The factor is
-    /// exact for `abs(exponent) <= 22`, where every power of ten is exactly
-    /// representable in a binary64 `Double`; beyond that it is the correctly
-    /// rounded nearest `Double`.
+    /// exact only for the non-negative exponents `0 ... 22`, where every power
+    /// of ten is exactly representable in a binary64 `Double`. The submultiples
+    /// (negative exponents) are fractional powers of ten — values such as 10⁻³
+    /// are *not* exactly representable in binary64 — so their factor is the
+    /// correctly rounded nearest `Double`; the same holds for multiples above
+    /// 10²².
     public var factor: Double {
-        let power = (0 ..< abs(exponent)).reduce(1.0) { product, _ in
+        let power = (0..<abs(exponent)).reduce(1.0) { product, _ in
             product * Double(base)
         }
         return exponent < 0 ? 1 / power : power

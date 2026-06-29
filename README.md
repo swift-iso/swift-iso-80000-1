@@ -20,16 +20,19 @@ quecto).
 
 - The complete SI decimal prefix set — 12 multiples and 12 submultiples.
 - Each prefix modelled as `(base: 10, exponent: Int)` plus name and symbol; no
-  expanded integer factor is stored, so nothing overflows and submultiples
-  stay exact.
-- `factor` derived lazily as a `Double` (exact for `|exponent| <= 22`).
+  expanded integer factor is stored, so nothing overflows and the prefix
+  definitions stay exact.
+- `factor` derived lazily as a `Double` — exact for the non-negative exponents
+  up to 10²² (every power of ten in that range is exactly representable in
+  binary64); submultiples (negative powers of ten) and multiples above 10²²
+  are the correctly rounded nearest `Double`.
 - No dependencies beyond the Swift standard library; no `import Foundation`.
 
 ## Installation
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-iso/swift-iso-80000-1.git", from: "0.1.0")
+    .package(url: "https://github.com/swift-iso/swift-iso-80000-1.git", branch: "main")
 ]
 ```
 
@@ -78,6 +81,14 @@ ISO_80000_1.Prefix.submultiples   // deci … quecto
 | yotta | Y | 10²⁴ | | yocto | y | 10⁻²⁴ |
 | ronna | R | 10²⁷ | | ronto | r | 10⁻²⁷ |
 | quetta | Q | 10³⁰ | | quecto | q | 10⁻³⁰ |
+
+## Standard
+
+This is an independent implementation of ISO 80000-1:2022. "ISO 80000-1" and
+the standard's content are the work of the International Organization for
+Standardization (ISO); the SI prefixes it adopts are defined by the Bureau
+International des Poids et Mesures (BIPM). This package is not affiliated with
+or endorsed by ISO or the BIPM.
 
 ## License
 
