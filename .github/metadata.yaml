@@ -1,9 +1,10 @@
 # .github/metadata.yaml
-description: "Swift encoding of the SI decimal prefixes defined in ISO 80000-1."
+description: "Swift implementation of ISO 80000-1: Quantities and units — Part 1: General (the SI decimal prefixes)."
 topics:
   - standards
   - iso
   - iso-80000
+  - iso-80000-1
   - si
   - units
   - prefixes
