@@ -1,5 +1,3 @@
-// ISO_80000_1.Prefix Tests.swift
-
 import ISO_80000_1
 import Testing
 
@@ -82,7 +80,7 @@ extension ISO_80000_1.Prefix {
         }
 
         @Test func `factor handles large exponents without overflow`() {
-            // 10³⁰ overflows UInt64 — the Double-derived factor stays finite.
+
             #expect(ISO_80000_1.Prefix.quetta.factor.isFinite)
             #expect(ISO_80000_1.Prefix.quetta.factor > 1e29)
             #expect(ISO_80000_1.Prefix.quecto.factor > 0)

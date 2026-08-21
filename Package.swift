@@ -2,7 +2,6 @@
 
 import PackageDescription
 
-// ISO 80000-1: Quantities and units — Part 1: General (the SI prefixes)
 let package = Package(
     name: "swift-iso-80000-1",
     platforms: [
