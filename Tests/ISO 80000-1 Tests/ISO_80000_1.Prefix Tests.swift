@@ -1,7 +1,9 @@
 import ISO_80000_1
 import Testing
 
-extension ISO_80000_1.Prefix {
+enum `ISO_80000_1.Prefix Tests` {}
+
+extension `ISO_80000_1.Prefix Tests` {
     @Suite("ISO 80000-1 Prefix")
     struct Tests {
 
